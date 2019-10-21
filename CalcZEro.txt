@@ -1,0 +1,288 @@
+#!/bin/bash
+
+#Andre Luiz Messias - Segurança da Informação Fatec Ourinhos -
+#Ano 2019
+#Pojeto 1 Desenvolvimeno de sistemas bash Shell
+
+menu ()
+{
+
+clear
+
+echo "==================================================================="
+echo
+echo "      CALCULADORA POROJETO 1 DESENVOLVIMENTO DE SISTEMAS EDUARDO  "
+echo "       	**** VERSAO 0.1 *** *** By: m3ss14s ****                  "
+echo "                                                                  "
+echo "=================================================================="
+echo
+echo
+echo "CALC 0.1 FatecTeste "
+echo " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo "--------- [1] > Somar "
+echo "--------- [2] > Subtração "
+echo "--------- [3] > Multiplicação "
+echo "--------- [4] > Divisão "
+echo "--------- [5] > Raiz quadrada "
+echo "--------- [6] > Potencia "
+echo "--------- [0] > Sair "
+echo " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo
+echo "Escolha uma das opções acima com CUIDADO!:  "
+
+read  opcao
+
+case $opcao in
+    1) soma ;;
+    2) subtracao ;;
+    3) multiplicacao ;;
+    4) divisao ;;
+    5) raizquad ;;
+    6) potencia ;;
+    0) exit ;;
+esac
+}
+
+soma ()
+{
+
+    clear
+    echo "Digite um número: "
+    read num1
+    echo "Digite um número: "
+    read num2
+
+    soma=$(($num1 + $num2 ))
+
+    echo "Resultado da soma é: $soma"
+
+echo
+echo "                                 "
+echo
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo " [c] > Continuar"
+    echo " [m] >  Menu Principal"
+    echo " [s] >  Sair"
+
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+
+    if [ "$op" = "c" ]
+    then
+        soma
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo " Isso NAO pode "
+        echo "Escolha denovo"
+        menu
+          
+ 
+    fi
+
+}
+
+subtracao ()
+{
+
+    clear
+    echo "Digite um número: "
+    read num1
+    echo "Digite um número: "
+    read num2
+
+    sub=$(($num1 - $num2 ))
+
+    echo "O Resultado da subtracao é: $sub"
+
+echo
+echo "                                            "
+echo
+
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo "< c > Continuar"
+    echo "< m >  Menu Principal"
+    echo "< s >  Sair"
+
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+
+    if [ "$op" = "c" ]
+    then
+        subtracao
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo "Essa nao vale "
+    fi
+
+}
+
+multiplicacao ()
+{
+
+    clear
+    echo "Digite um número: "
+    read num1
+    echo "Digite um número: "
+    read num2
+
+    mult=$(($num1 * $num2 ))
+
+    echo "Resultado da multiplicacao é: $mult"
+
+echo
+echo "                                                  "
+echo
+
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo "< c > Continuar"
+    echo "< m >  Menu Principal"
+    echo "< s >  Sair"
+
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+
+    if [ "$op" = "c" ]
+    then
+        multiplicacao
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo " Essa op nao vale nada "
+    fi
+
+}
+
+divisao ()
+{
+    clear
+    echo "Digite um número: "
+    read num1
+    echo "Digite um número: "
+    read num2
+    div=$(($num1 / $num2 ))
+    echo "Resultado da divisão é: $div"
+echo
+echo "                                                     "
+echo
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo "< c > Continuar"
+    echo "< m >  Menu Principal"
+    echo "< s >  Sair"
+
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+
+    if [ "$op" = "c" ]
+    then
+        divisao
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo " Essa nao vale "
+    fi
+}
+
+
+raizquad ()
+{
+
+clear
+echo "Digite um número: "
+read num
+i=1
+while [ $i -lt $num ]
+do
+    calc=$(($num / $i))
+    calc2=$(($calc * $calc ))
+        if [ $calc2 -eq $num ]
+        then
+            break
+        fi
+    i=$(($i + 1))
+done
+echo "A raiz quadrada de $num é: $calc"
+echo
+echo "                                  "
+echo
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo "< c > Continuar"
+    echo "< m >  Menu Principal"
+    echo "< s >  Sair"
+
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+    if [ "$op" = "c" ]
+    then
+        raizquad
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo " Essa opcao nao faz nada NAADAAA "
+    fi
+}
+
+potencia ()
+{
+  echo "Potenciação =: :) "
+  echo  "Digite um numero "
+  read num1
+  echo "Digite outro numero"
+  read num2
+  po=$((num1^num2))
+  echo "O Numero $num1 elevado a $num2 é $po ";
+  echo
+echo "                                  "
+echo
+    echo "*** ESCOLHA UMA OPÇAO PARA CONTINUAR ***"
+    echo "< c > Continuar"
+    echo "< m >  Menu Principal"
+    echo "< s >  Sair"
+    echo "c (continua) m (menu principal) s (sair)"
+    read op
+    if [ "$op" = "c" ]
+    then
+        potencia
+    elif [ "$op" = "m" ]
+    then
+        menu
+    elif [ "$op" = "s" ]
+    then
+        clear
+        exit
+    else
+        echo " Essa opcao nao faz nada NAADAAA "
+    fi
+  }
+
+
+
+
+menu
+
